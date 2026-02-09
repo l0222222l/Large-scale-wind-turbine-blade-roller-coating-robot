@@ -1,65 +1,105 @@
-# Adaptive Impedance Control & Parameter Identification Simulations
 
-[cite_start]This repository contains MATLAB simulation codes for robotic contact tasks, specifically focusing on applications like automated roller coating for large-scale wind turbine blades[cite: 1, 2].
 
-The project validates two core research areas:
-1.  [cite_start]**Environment Stiffness Identification:** Comparing **IRLS (Iteratively Reweighted Least Squares)** against traditional **RLS (Recursive Least Squares)** to handle stiffness mutations and fluctuations[cite: 2, 5, 14].
-2.  [cite_start]**Adaptive Impedance Control:** Implementing **DT-MPC (Discrete-Time Model Predictive Control)** to dynamically optimize impedance parameters (Inertia $m$, Damping $b$, Stiffness $k$) based on real-time contact force[cite: 46, 49].
+## 📖1. 项目简介 (Introduction)
 
-## 🛠️ Prerequisites
+本仓库提供了一套用于机器人接触任务的 **MATLAB 仿真代码**，特别针对大型风电叶片的自动辊涂场景 。该项目的主要研究目标包括：
 
-To run these simulations, you need **MATLAB** (Recommended R2018b or later) with the following toolbox installed:
+* 
+**环境刚度辨识**：通过仿真验证了迭代重加权最小二乘法 (IRLS) 在辨识环境刚度方面的优势 。
 
-* [cite_start]**Optimization Toolbox** (Required for the `quadprog` function used in the MPC simulations)[cite: 48].
 
-## 📂 File Structure
+* 
+**变参数阻抗控制**：应用离散时间模型预测控制 (DT-MPC) 来动态优化阻抗参数 。
 
-The codebase is organized into three main categories: Parameter Identification, DT-MPC Control, and Basic Impedance Analysis.
 
-### 1. Parameter Identification
-These scripts analyze the performance of IRLS versus RLS under different environmental stiffness conditions.
 
-| File Name | Description | Related Scenario |
-| :--- | :--- | :--- |
-| `Parameter_identification001.m` | [cite_start]**Stiffness Fluctuation.** Compares tracking performance of IRLS vs. RLS when environment stiffness fluctuates sinusoidally[cite: 13, 14]. | Dynamic Stiffness |
-| `Parameter_identification002.m` | [cite_start]**Stiffness Mutation.** Compares convergence speed when stiffness undergoes a step change (e.g., 5N/mm to 10N/mm)[cite: 4, 5]. | Sudden Change |
-| `Parameter_identification004.m` | [cite_start]**IRLS vs. Impedance Control.** Contrasts force tracking errors between IRLS-based control and fixed-parameter impedance control under stiffness fluctuations[cite: 16]. | Control Comparison |
+项目将辊筒与工件表面的接触过程等效为弹簧模型 。
 
-### 2. DT-MPC Variable Impedance Control
-These scripts implement Discrete-Time Model Predictive Control to optimize impedance parameters online for various surface profiles.
+---
 
-| File Name | Description | Environment |
-| :--- | :--- | :--- |
-| `MPC.m` | [cite_start]**Planar Surface.** Baseline comparison between MPC-optimized control and traditional impedance control with a fixed reference position ($m$, $b$, $k$ optimization)[cite: 47, 49]. | Flat |
-| `MPC001.m` | [cite_start]**Sinusoidal Surface.** Validates algorithm adaptability when the reference position follows a sine wave[cite: 55, 57]. | Curved |
-| `MPC002.m` | [cite_start]**Irregular Surface.** Simulates a complex environment (Sine + Cosine + Decay) to test robustness against irregular disturbances[cite: 63, 65]. | Complex/Rough |
+## 🚀2. 开始使用 (Getting Started)
 
-### 3. Basic Impedance Characteristics
-Fundamental simulations to understand how system parameters affect contact dynamics.
+若要运行此仿真代码，您的开发环境需要满足以下条件：
 
-| File Name | Description | Focus |
-| :--- | :--- | :--- |
-| `ImpedanceControl001.m` | [cite_start]**Parameter Influence.** Analyzes how varying Inertia ($m$), Damping ($b$), and Stiffness ($k$) affects overshoot and settling time[cite: 27, 29]. | Controller Tuning |
-| `ImpedanceControl003.m` | [cite_start]**Environment Influence.** Demonstrates how different environmental stiffnesses (Low, Medium, High) impact contact force oscillation[cite: 22, 25]. | Environment |
+### 软件要求
 
-## 🚀 Getting Started
+* 
+**MATLAB**：确保系统中已安装 MATLAB 软件 。
 
-1.  **Clone the repository** to your local machine.
-2.  Open **MATLAB** and navigate to the repository folder.
-3.  **Run Parameter Identification:**
-    * Execute `Parameter_identification002.m` to visualize how IRLS handles sudden stiffness changes compared to RLS.
-4.  **Run MPC Simulation:**
-    * Execute `MPC.m` to see the adaptive control in action.
-    * *Note:* This script uses `quadprog` for quadratic programming. Ensure the Optimization Toolbox is installed. The simulation may take a few seconds to compute.
 
-## 📊 Key Results
 
-* **Stiffness Identification:** IRLS demonstrates superior convergence and lower error rates compared to RLS. [cite_start]It avoids the saturation effects seen in RLS during continuous iterations and adapts faster to stiffness mutations[cite: 5, 21].
-* [cite_start]**Vibration Suppression:** In irregular surface simulations, the DT-MPC approach significantly reduced force overshoot (e.g., from **70%** in traditional control to **31%** with MPC) and accelerated the settling time[cite: 66, 71].
+### 所需工具箱
 
-## 📝 Reference
+* 
+**Optimization Toolbox**（优化工具箱）：用于处理 MPC 优化及参数辨识中的计算任务 。
 
-[cite_start]This code is part of a doctoral research project on robotic force control and adaptive algorithms for dynamic environments[cite: 1].
+
+
+---
+
+## 📂3. 文档内容 (Documentation Content)
+
+仿真框架主要分为以下三个核心部分：
+
+### 3.1 基础阻抗控制特性分析
+
+该部分用于分析阻抗参数及环境刚度对系统响应的具体影响 ：
+
+* 
+**惯性参数 ()**：在保持阻尼和刚度不变的情况下，改变惯性参数以观察接触力响应曲线的变化 。
+
+
+* 
+**阻尼参数 ()**：分析不同阻尼值对接触力稳定性的影响 。
+
+
+* 
+**刚度参数 ()**：研究阻抗控制器自身的刚度设置如何影响接触力 。
+
+
+* 
+**环境刚度影响**：分析在不同工件表面刚度下，接触力随时间的变化情况 。
+
+
+
+### 3.2 DT-MPC 变参数阻抗控制
+
+使用离散时间模型预测控制在线优化阻抗参数，以适应不同的工作表面 ：
+
+* 
+**平面环境**：验证在标准平面下的控制效果 。
+
+
+* 
+**正弦曲面环境**：测试机器人在规则波动表面上的接触力跟踪能力 。
+
+
+* 
+**不规则曲面环境**：评估系统在复杂、随机变化表面下的鲁棒性 。
+
+
+
+### 3.3 环境刚度参数辨识
+
+对比了两种算法在环境刚度发生变化时的辨识表现 ：
+
+* 
+**算法对比**：基于递推最小二乘法的阻抗控制 (RLS) 与基于迭代重加权最小二乘法的阻抗控制 (IRLS) 。
+
+
+* 
+**刚度突变仿真**：模拟环境刚度在  秒时发生瞬间改变（如从  突变至 ），观察算法的收敛速度 。
+
+
+* 
+**刚度波动仿真**：模拟环境刚度呈正弦规律波动，测试算法的动态跟踪精度 。
+
+
+
+---
+
+需要我为您根据这些内容生成对应的 MATLAB 仿真脚本框架，或者详细解释其中的某个控制公式吗？
+
 
 
 
