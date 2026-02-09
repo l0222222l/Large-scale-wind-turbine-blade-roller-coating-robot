@@ -13,13 +13,13 @@
 
 ### 软件要求
 
-* **MATLAB**
+* **[MATLAB](https://ww2.mathworks.cn/products/matlab.html)**
 
 
 
 ### 所需工具箱
 
-* **Optimization Toolbox**
+* **[Optimization Toolbox](https://ww2.mathworks.cn/products/optimization.html)**
 
 
 
@@ -35,7 +35,7 @@
 该部分用于分析阻抗参数及环境刚度对系统响应的具体影响 ：
 
 
-* **接触力学模型**：将辊筒与工件表面的接触过程等效为弹簧模型 
+* **接触力学模型**：将辊筒与工件表面的接触过程等效为弹簧模型 。
 ![p1](./p1.png)
 
 
@@ -57,16 +57,16 @@ k_e(x_e - x), & x < x_e \\
 \end{cases}
 $$
 
- •	期望接触力设置为 $f_d = 10N$，环境位置设置为 $x_e = 0m$
+ •	期望接触力设置为 $f_d = 10N$，环境位置设置为 $x_e = 0m$。
 
 
 * **阻抗参数**：在保持其他两个参数不变的条件下，分别依次改变惯性参数 $M$、阻尼参数 $B$ 或刚度参数 $K$ 的值，得到对应的接触力响应曲线 。
+
 此处对应目录下的 [ImpedanceControl003.m](./ImpedanceControl003.m) 
-
-
 ![p2](./p2.png)
 
 * **环境刚度**：不同环境刚度对接触力产生的变化影响 。
+
 此处对应目录下的 [ImpedanceControl001.m](./ImpedanceControl001.m) 
 ![p3](./p3.png)
 
@@ -98,26 +98,32 @@ $$
 
 * **基础设定**：期望力设置为 $f_d=10\text{N}$，阻抗控制参数分别设置为 $m=10$， $b=200$， $k=50$。
 
-* **刚度突变仿真**：在  秒时，环境刚度从  瞬间增加至  。
+* **刚度突变仿真**：环境刚度在 $t=1.5\mathrm{s}$ 时从 $5\mathrm{N/mm}$ 突变至 $10\mathrm{N/mm}$。
 
 
-* 对比 IRLS 与不使用参数辨识的效果 。
+* 对比 IRLS 与不使用参数辨识在突变环境下的性能差异 。
 
+此处对应目录下的 [Parameter_identification003.m](./Parameter_identification003.m) 
 ![p7](./p7.png)
-* 对比 IRLS 与 RLS 的收敛速度与响应 。
+* 对比 IRLS 与 RLS 在突变环境下的跟踪精度 。
 
+此处对应目录下的 [Parameter_identification002.m](./Parameter_identification002.m) 
 ![p8](./p8.png)
 
 
-* **刚度波动仿真**：环境刚度以  为中心进行  的正弦波动 。
+* **刚度波动仿真**：环境刚度设置为以 $10\mathrm{N/mm}$ 为中心、上下正弦波动 $1\mathrm{N/mm}$。 。
 
 
-* 对比 IRLS 与无辨识算法的性能差异 。
+* 对比 IRLS 与不使用参数辨识在波动环境下的性能差异 。
+
+此处对应目录下的 [Parameter_identification004.m](./Parameter_identification004.m) 
 ![p9](./p9.png)
 
-* 深入对比 IRLS 与 RLS 在波动环境下的跟踪精度 。
+* 对比 IRLS 与 RLS 在波动环境下的跟踪精度 。
 
+此处对应目录下的 [Parameter_identification001.m](./Parameter_identification001.m) 
 ![p10](./p10.png)
+
 
 
 
