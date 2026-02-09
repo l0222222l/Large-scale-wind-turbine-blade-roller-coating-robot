@@ -36,7 +36,7 @@
 
 
 * **接触力学模型**：将辊筒与工件表面的接触过程等效为弹簧模型 
-<img width="3350" height="1146" alt="p1" src="https://github.com/user-attachments/assets/759eeed7-0fc6-423a-90fa-8cfb19aa5be2" />
+!(p1.png)
 
 
 
@@ -108,6 +108,7 @@
 
 
 * 深入对比 IRLS 与 RLS 在波动环境下的跟踪精度 。
+
 
 
 
