@@ -46,14 +46,12 @@
 $$m(\ddot{x} - \ddot{x}_d) + b(\dot{x} - \dot{x}_d) + k(x - x_d) = f_e - f_d$$
 
 
+
+
 * **机器人末端与环境的接触力为**：
-  
+$$f_e = \begin{cases} k_e(x_e - x), & x < x_e \\ 0, & x \geq x_e \end{cases}$$
 
 •	期望接触力设置为 $f_d = 10N$，环境位置设置为 $x_e = 0m$
-
-其中  为机器人末端位置， 为环境位置， 为环境刚度 。
-
-
 
 
 * **实验设定与分析**：
@@ -111,6 +109,7 @@ $$m(\ddot{x} - \ddot{x}_d) + b(\dot{x} - \dot{x}_d) + k(x - x_d) = f_e - f_d$$
 * 深入对比 IRLS 与 RLS 在波动环境下的跟踪精度 。
 
 ![p10](./p10.png)
+
 
 
 
