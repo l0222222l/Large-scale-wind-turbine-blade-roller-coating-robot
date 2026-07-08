@@ -2,7 +2,7 @@
 
 ## 📖1. 项目简介 (Introduction)
 
-本仓库提供了一套用于机器人接触任务的 **MATLAB 仿真代码**，特别针对大型风电叶片的自动辊涂场景 。
+本仓库提供了一套用于机器人接触任务的 **MATLAB 仿真代码**，以及 **Python 仿真代码**特别针对大型风电叶片的自动辊涂场景 。
 
 
 ---
@@ -28,7 +28,7 @@
 ## 📂3. 文档内容 (Documentation Content)
 
 
-本项目的核心研究内容分为基础特性分析、DT-MPC 变参数阻抗控制策略验证以及参数辨识算法对比。
+本项目的核心研究内容分为基础特性分析、DT-MPC 变参数阻抗控制策略验证，参数辨识算法对比，全局路径规划相关。
 
 ### 3.1 基础阻抗控制特性分析
 
@@ -124,7 +124,13 @@ $$
 此处对应目录下的 [Parameter_identification001.m](./Parameter_identification001.m) 
 ![p10](./p10.png)
 
+### 3.4 全局路径规划相关
 
+对一半叶片的点云进行AGV的全局路径规划 。
+
+
+此处对应目录下的 [Parameter_Global_path_planning.py](./Global_path_planning.py) 
+![p10](./p10.png)
 
 
 
