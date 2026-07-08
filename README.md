@@ -130,7 +130,7 @@ $$
 
 
 此处对应目录下的 [Parameter_Global_path_planning.py](./Global_path_planning.py) 
-![p10](./p10.png)
+![p11](./p11.png)
 
 
 
