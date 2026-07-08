@@ -20,7 +20,16 @@
 ### 所需工具箱
 
 * **[Optimization Toolbox](https://ww2.mathworks.cn/products/optimization.html)**
+### 软件要求
 
+* **[Python 3](https://www.python.org/)**
+
+### 所需第三方库
+
+* **[NumPy](https://numpy.org/)**
+* **[Pandas](https://pandas.pydata.org/)**
+* **[Matplotlib](https://matplotlib.org/)**
+* **[SciPy](https://scipy.org/)**
 
 
 ---
