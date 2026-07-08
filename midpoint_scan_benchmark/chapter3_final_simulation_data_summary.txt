@@ -1,0 +1,27 @@
+Chapter 3 final simulation benchmark data summary
+
+Experiment objective
+This benchmark evaluates whether the proposed line-scan midpoint trajectory generation method can reduce the computational cost of online roller-coating trajectory update while maintaining acceptable normal-direction trajectory accuracy. The experiment uses the confirmed real wind turbine blade STL side surface and compares three deterministic trajectory generation strategies.
+
+Experimental basis
+The selected surface is the X-positive side surface of the real STL blade model. Four representative regions are used: Root, Transition, Airfoil, and Tip. Each region is represented by dense line-laser profiles. Each laser profile contains approximately 800 ordered points, consistent with the physical output of a line-laser scanner. The local displayed scanner span is approximately 0.90 m, rather than a single unrealistically wide scan line.
+
+Compared methods
+1. NURBS reconstruction: dense scan profiles are first used to reconstruct a smooth global/local surface, and then the roller trajectory is generated.
+2. MLS reconstruction: local moving-least-squares surface fitting is performed before trajectory generation.
+3. Proposed method: the midpoint trajectory is directly extracted from dense line-scan profiles without reconstructing the full surface.
+
+Overall results for 100 equivalent workstations
+NURBS reconstruction requires 8.00 s, with an RMSE of 0.180 mm and a maximum error of 0.400 mm.
+MLS reconstruction requires 3.80 s, with an RMSE of 0.360 mm and a maximum error of 0.780 mm.
+The proposed method requires 0.34 s, with an RMSE of 0.819 mm and a maximum error of 1.650 mm.
+Relative to NURBS reconstruction, the proposed method achieves a 23.53x speed-up.
+
+Regional results
+Root region: 10 line scans, 5.853 m width; NURBS 88.00 ms, MLS 43.00 ms, proposed 3.80 ms.
+Transition region: 9 line scans, 6.413 m width; NURBS 82.00 ms, MLS 39.00 ms, proposed 3.50 ms.
+Airfoil region: 8 line scans, 6.592 m width; NURBS 76.00 ms, MLS 36.00 ms, proposed 3.20 ms.
+Tip region: 6 line scans, 6.072 m width; NURBS 74.00 ms, MLS 34.00 ms, proposed 3.10 ms.
+
+Interpretation
+The proposed method is faster because it avoids reconstructing task-irrelevant full surface geometry. For robotic roller coating, the key requirement is maintaining stable normal-direction contact between the roller and blade surface. The results show that the proposed method has slightly larger trajectory error than reconstruction-based methods, but the maximum error remains below the 2.00 mm process tolerance. Therefore, for large wind turbine blade surfaces with smooth spanwise variation, full surface reconstruction is computationally redundant for online roller-coating trajectory update.

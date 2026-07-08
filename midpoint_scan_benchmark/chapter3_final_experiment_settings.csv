@@ -1,0 +1,13 @@
+Item,Value
+Geometry source,Real wind turbine blade STL model
+Experimental surface,Confirmed X-positive side surface
+Representative regions,"Root; Transition; Airfoil; Tip"
+Equivalent workstation design,"Four representative workstations repeated for 25 cycles"
+Total equivalent workstations,100
+Line-scan profile density,Approximately 800 ordered points per laser profile
+Displayed local scanner span,Approximately 0.90 m per local line-scan segment
+Trajectory tolerance,2.00 mm
+Noise model,"Deterministic controlled-error model with fixed random seed"
+Baseline A,NURBS/B-spline reconstruction before trajectory planning
+Baseline B,MLS local surface fitting before trajectory planning
+Proposed method,Direct midpoint extraction from dense line-scan profiles without surface reconstruction

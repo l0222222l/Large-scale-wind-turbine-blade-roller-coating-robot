@@ -1,0 +1,13 @@
+Region,Number of line scans,Line-scan width (m),Method,Single-workstation processing time (ms),RMSE (mm),Max error (mm)
+Root,10,5.853,NURBS reconstruction,88.00,0.180,0.398
+Root,10,5.853,MLS reconstruction,43.00,0.360,0.780
+Root,10,5.853,Proposed method,3.80,0.820,1.650
+Transition,9,6.413,NURBS reconstruction,82.00,0.180,0.399
+Transition,9,6.413,MLS reconstruction,39.00,0.360,0.780
+Transition,9,6.413,Proposed method,3.50,0.818,1.650
+Airfoil,8,6.592,NURBS reconstruction,76.00,0.180,0.400
+Airfoil,8,6.592,MLS reconstruction,36.00,0.360,0.780
+Airfoil,8,6.592,Proposed method,3.20,0.819,1.650
+Tip,6,6.072,NURBS reconstruction,74.00,0.180,0.400
+Tip,6,6.072,MLS reconstruction,34.00,0.360,0.780
+Tip,6,6.072,Proposed method,3.10,0.820,1.643

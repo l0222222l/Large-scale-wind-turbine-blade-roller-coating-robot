@@ -1,0 +1,4 @@
+Method,Processing time for 100 workstations (s),RMSE (mm),Max error (mm),Speed-up
+NURBS reconstruction,8.00,0.180,0.400,1.00x
+MLS reconstruction,3.80,0.360,0.780,2.11x
+Proposed method,0.34,0.819,1.650,23.53x
